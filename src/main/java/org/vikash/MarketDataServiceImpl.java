@@ -3,75 +3,14 @@ package org.vikash;
 import lombok.Data;
 import org.vikash.model.LPData;
 import org.vikash.model.MarketData;
+import org.vikash.model.MarketDataKey;
+import org.vikash.model.MarketDataValue;
 import org.vikash.model.Message;
 import org.vikash.model.Side;
 import org.vikash.model.State;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-
-
-//interface DeleteData {
-//    void delete(String source, String instrument);
-//}
-//
-//class DeleteBuyData implements DeleteData {
-//    PriceBook priceBook = PriceBook.getInstance();
-//
-//    @Override
-//    public void delete(String source, String instrument) {
-////        priceBook.delete(source, instrument, Side.BUY);
-//    }
-//}
-//
-//class DeleteSellData implements DeleteData {
-//    PriceBook priceBook = PriceBook.getInstance();
-//
-//    @Override
-//    public void delete(String source, String instrument) {
-//
-//    }
-//}
-
-//class DeleteFactory {
-//
-//    public static DeleteData getDeleteFactory(Side side) {
-//        switch (side) {
-//            case BUY :
-//                return new DeleteBuyData();
-//            case SELL:
-//                return new DeleteSellData();
-//        }
-//        return null;
-//    }
-//}
-
-@Data
-class MarketDataKey{
-    private String source;
-    private String instrument;
-    private Side side;
-
-    public MarketDataKey(String source, String instrument, Side side) {
-        this.source = source;
-        this.instrument = instrument;
-        this.side = side;
-    }
-}
-
-@Data
-class MarketDataValue{
-    private double price;
-    private long quantity;
-    private State state;
-
-    public MarketDataValue(double price, long quantity, State state) {
-        this.price = price;
-        this.quantity  = quantity;
-        this.state  = state;
-    }
-}
-
 
 @Data
 public class MarketDataServiceImpl implements MarketDataService{
@@ -216,3 +155,42 @@ public class MarketDataServiceImpl implements MarketDataService{
         throw new RuntimeException("side " + side + " is invalid");
     }
 }
+
+
+
+
+//interface DeleteData {
+//    void delete(String source, String instrument);
+//}
+//
+//class DeleteBuyData implements DeleteData {
+//    PriceBook priceBook = PriceBook.getInstance();
+//
+//    @Override
+//    public void delete(String source, String instrument) {
+////        priceBook.delete(source, instrument, Side.BUY);
+//    }
+//}
+//
+//class DeleteSellData implements DeleteData {
+//    PriceBook priceBook = PriceBook.getInstance();
+//
+//    @Override
+//    public void delete(String source, String instrument) {
+//
+//    }
+//}
+
+//class DeleteFactory {
+//
+//    public static DeleteData getDeleteFactory(Side side) {
+//        switch (side) {
+//            case BUY :
+//                return new DeleteBuyData();
+//            case SELL:
+//                return new DeleteSellData();
+//        }
+//        return null;
+//    }
+//}
+
