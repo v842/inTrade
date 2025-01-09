@@ -8,7 +8,7 @@ import java.util.List;
 
 public class InTradeSystem {
 
-    private static final MarketDataService marketDataService = MarketDataService.getInstance();
+    private static final MarketDataService marketDataService = MarketDataServiceImpl.getInstance();
 
     public void update(String source, String instrument, List<LPData> lpDataList) {
         marketDataService.update(new Message(source, instrument, lpDataList));
